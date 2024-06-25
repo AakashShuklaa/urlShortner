@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link shortner</title>
+  <style>
+ body {
+      background-color: #90a2f2; /* Light gray background color from image */
+      color: #222C33; /* Dark gray text color from image */
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center; /* Center the cards horizontally */
+      align-items: center; /* Center the cards vertically */
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff; /* White background color for cards */
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      text-align: center;
+    }
+
+    .title {
+      font-size: 2em;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .form-container {
+      background-color: #fff; /* White background color for the form container */
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      margin-bottom: 15px;
+    }
+
+    .generated-url{
+        font-weight: 600;
+    }
+
+    .form-button {
+      background-color: #5661d1; /* Light purple button color from image */
+      color: white;
+      padding: 10px 20px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        color: #222C33;
+    }
+
+
+    #url-input{
+        border-radius: 10px;
+    }
+  </style>
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Link Shortner</h1>
+    </div>
+    <div class="content">
+        <div class="container">
+            <% if (locals.id) { %>
+              <p class="generated-url">URL generated: <a target="_blank" href="http://localhost:8001/<%= id %>">http://localhost:8001/<%= id %></a></p>
+            <% } %>
+            <div class="form-container">
+              <form action="/url" method="post" class="url-form">
+                <label for="url-input" class="form-label">Enter your link here.....</label>
+                <input id="url-input" name="url" type="text" placeholder="https://example.com" class="form-input">
+                <button type="submit" class="form-button">Generate</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
